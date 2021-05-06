@@ -3,13 +3,13 @@
 #include "Stan.h"
 #include "Stanar.h"
 
-namespace Stan
+namespace SpisakStanara
 {
     //Constructor
     Stan::Stan()
     {
         broj_stan = -1;
-        broj_stanara = 0;
+        // broj_stanara = 0;
         stanari.resize(0);
         povrsina_stan = .0;
     }
@@ -21,10 +21,10 @@ namespace Stan
         return broj_stan;
     }
 
-    int Stan::getBrojStanara() const
-    {
-        return broj_stanara;
-    }
+    // int Stan::getBrojStanara() const
+    // {
+    //     return broj_stanara;
+    // }
 
     std::vector<Stanar> Stan::getStanari() const
     {
@@ -43,10 +43,10 @@ namespace Stan
         broj_stan = br_stan;
     }
 
-    void Stan::setBrojStanara(int br_stanara)
-    {
-        broj_stanara = br_stanara;
-    }
+    // void Stan::setBrojStanara(int br_stanara)
+    // {
+    //     broj_stanara = br_stanara;
+    // }
 
     std::vector<Stanar> &Stan::setStanari()
     {

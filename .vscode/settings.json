@@ -38,6 +38,31 @@
         "xmemory": "cpp",
         "xstddef": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
-    }
+        "xutility": "cpp",
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "cctype": "cpp",
+        "clocale": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "algorithm": "cpp",
+        "memory_resource": "cpp",
+        "optional": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "fstream": "cpp",
+        "sstream": "cpp"
+    },
+    "cSpell.words": [
+        "Spisak"
+    ],
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "d:\\VS_code\\Gcc\\Evidencija_Stanara",
+            "binaryPath": "d:\\VS_code\\Gcc\\Evidencija_Stanara\\test",
+            "binaryArgs": []
+        }
+    ]
 }

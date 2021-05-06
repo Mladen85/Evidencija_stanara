@@ -2,10 +2,14 @@
 #define STANAR_H
 
 #include <iostream>
-#include "Stan.h"
+// #include "Stan.h"
 
-namespace Stan
+
+
+namespace SpisakStanara
 {
+    class Stan;
+
     class Stanar
     {
     private:
@@ -16,8 +20,12 @@ namespace Stan
         Stan *stan;
 
     public:
+        friend Stan;
         //Constructors
         Stanar();
+
+        //Destructor
+        ~Stanar() = default;
 
         //Getters
         std::string getIme() const;
@@ -31,7 +39,7 @@ namespace Stan
         void setPrezime(const std::string &n_prezime);
         void setTelBroj(const std::string &n_tel_broj);
         void setEmail(const std::string &n_email);
-        Stan *setStan();
+        void setStan(Stan *new_stan);
     };
 }
 

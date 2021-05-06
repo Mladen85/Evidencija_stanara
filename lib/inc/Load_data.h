@@ -1,16 +1,15 @@
+#ifndef LOAD_DATA_H
+#define LOAD_DATA_H
+
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "Stanar.h"
 #include "Stan.h"
+#include "Stanar.h"
 
-extern std::vector<Stan::Stan> zgrada;
 
-//Explanation: Unnamed namespace is equivalent to static func in C
-namespace
-{
-    int OpenFile(std::string file_name)
-    {
-        
-    }
-}
+extern std::vector<SpisakStanara::Stan> zgrada;
+
+void Load_Data();
+
+#endif //LOAD_DATA_H

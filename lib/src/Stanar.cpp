@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Stanar.h"
-#include "Stan.h"
+// #include "Stan.h"
 
-namespace Stan
+namespace SpisakStanara
 {
     //Constructors
     Stanar::Stanar()
@@ -38,15 +38,15 @@ namespace Stan
 
     Stan &Stanar::getStan() const
     {
-        if(stan != nullptr)
-        {
+        // if(stan != nullptr)
+        // {
             return *stan;
-        }
-        else
-        {
-            Stan temp_stan;
-            return temp_stan;
-        }
+        // }
+        // else
+        // {
+        //     Stan temp_stan;
+        //     return temp_stan;
+        // }
     }
 
 
@@ -71,8 +71,8 @@ namespace Stan
         email = n_email;
     }
 
-    Stan *Stanar::setStan()
+    void Stanar::setStan(Stan *new_stan)
     {
-        return stan;
+        stan = new_stan;
     }
 }
