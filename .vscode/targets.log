@@ -5,8 +5,9 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Thu May 06 23:18:15 2021
+# Make data base, printed on Mon May 10 04:21:26 2021
 
 # Variables
 
@@ -24,13 +25,12 @@ CommonProgramFiles = C:\Program Files\Common Files
 MAKEFLAGS = pqrR
 # environment
 VSCODE_LOG_NATIVE = false
-# makefile (from 'Makefile', line 37)
+# makefile (from 'Makefile', line 38)
 TARGET = test
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
-@D = $(patsubst %/,%,$(pat 
-subst %\,%,$(dir $@)))
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
 HOMEDRIVE = C:
 # automatic
@@ -54,7 +54,7 @@ MAKEFILE_LIST :=  Makefile
 # makefile (from 'Makefile', line 18)
 LIB_DIR = lib
 # environment
-SystemRoot = C:\Windows
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = C:\Users\Danijela\AppData\Roaming\Code\CachedData\cfa2e218100323074ac1948c885448fdf4de2a7f
 # environment
@@ -66,9 +66,11 @@ SystemDrive = C:
 # environment
 CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9d2ed91c-8907-4dbc-98da-5d666f2b56dc-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-010171b8-9b28-4b48-9707-9f3f520f2a5a-sock
 # environment
 VSCODE_CWD = C:\VS_Code
+# environment
+SystemRoot = C:\Windows
 # default
 MAKE_HOST := x86_64-w64-mingw32
 # environment
@@ -95,29 +97,29 @@ ELECTRON_RUN_AS_NODE = 1
 LIB = stan
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync
-# makefile (from 'Makefile', line 60)
-DEBUG_FLAG = -g
 # makefile (from 'Makefile', line 61)
+DEBUG_FLAG = -g
+# makefile (from 'Makefile', line 62)
 CFLAGS_LIB = -std=c++11 -I$(LIB_DIR)/$(INC_LIB_DIR)
-# makefile (from 'Makefile', line 44)
+# makefile (from 'Makefile', line 45)
 SRC_APP = $(wildcard *.cpp)
 # environment
 ProgramW6432 = C:\Program Files
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_18032_DGKMJXRYBIREGZUE
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_5584_XVVHTRKMDESJFXMZ
 # environment
 VSCODE_PIPE_LOGGING = true
-# makefile (from 'Makefile', line 64)
+# makefile (from 'Makefile', line 65)
 W_PEDANTIC = -Wall -pedantic
-# makefile (from 'Makefile', line 62)
+# makefile (from 'Makefile', line 63)
 CFLAGS_APP = -std=c++11 -I$(LIB_DIR)/$(INC_LIB_DIR)
 # environment
 COMPUTERNAME = DESKTOP-I8N84I3
 # default
 .LOADED := 
-# makefile (from 'Makefile', line 31)
+# makefile (from 'Makefile', line 32)
 OBJ_LIB_DIR = obj
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
@@ -145,19 +147,19 @@ MAKELEVEL := 0
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
-# makefile (from 'Makefile', line 59)
+# makefile (from 'Makefile', line 60)
 CC = $(CCOMPILER)
 # default
 MAKE_VERSION := 4.2.1
-# makefile (from 'Makefile', line 53)
+# makefile (from 'Makefile', line 54)
 OBJ_APP_DIR = obj
 # makefile
-.DEFAULT_GOAL := lib/libstan.a
+.DEFAULT_GOAL := lib
 # environment
 OneDrive = C:\Users\Danijela\OneDrive
 # automatic
 %D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
-# makefile (from 'Makefile', line 32)
+# makefile (from 'Makefile', line 33)
 OBJ_LIB = $(patsubst %,$(LIB_DIR)/$(OBJ_LIB_DIR)/%, $(notdir $(SRC_LIB:.cpp=.o)))
 # environment
 DriverData = C:\Windows\System32\Drivers\DriverData
@@ -175,7 +177,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
 OS = Windows_NT
 # environment
 VSCODE_IPC_HOOK = \\.\pipe\b8e5b0b812657c23ec0ab5ca50538b3a-1.56.0-main-sock
-# makefile (from 'Makefile', line 54)
+# makefile (from 'Makefile', line 55)
 OBJ_APP = $(patsubst %,$(OBJ_APP_DIR)/%, $(SRC_APP:.cpp=.o))
 # environment
 HOMEPATH = \Users\Danijela
@@ -191,7 +193,7 @@ PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\Wi
 +D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
 # environment
 windir = C:\Windows
-# makefile (from 'Makefile', line 28)
+# makefile (from 'Makefile', line 29)
 INC_LIB_DIR = inc
 # automatic
 +F = $(notdir $+)
@@ -199,8 +201,6 @@ INC_LIB_DIR = inc
 SUFFIXES := 
 # environment
 APPDATA = C:\Users\Danijela\AppData\Roaming
-# environment
-__COMPAT_LAYER = DetectorsMessageBoxErrors
 # environment
 TEMP = C:\Users\Danijela\AppData\Local\Temp
 # default
@@ -222,13 +222,15 @@ PROCESSOR_REVISION = 3a09
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 18032
-# makefile (from 'Makefile', line 63)
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+VSCODE_PID = 5584
+# makefile (from 'Makefile', line 64)
 LFLAGS_APP = -l$(LIB) -L$(LIB_DIR)
 # environment
 USERDOMAIN_ROAMINGPROFILE = DESKTOP-I8N84I3
 # variable set hash-table stats:
-# Load=108/1024=11%, Rehash=0, Collisions=20/163=12%
+# Load=109/1024=11%, Rehash=0, Collisions=23/173=13%
 
 # Pattern-specific Variable Values
 
@@ -236,26 +238,26 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-I8N84I3
 
 # Directories
 
-# . (key d:/VS_code/Gcc/Evidencija_Stanara, mtime 1620335854): 12 files, no impossibilities.
+# . (key d:/VS_code/Gcc/Evidencija_Stanara, mtime 1620612383): 13 files, no impossibilities.
 # lib/src (key d:/VS_code/Gcc/Evidencija_Stanara/lib/src, mtime 1619998839): 5 files, no impossibilities.
 
-# 17 files, no impossibilities in 2 directories.
+# 18 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 lib/obj/%.o: lib/src/%.cpp
-#  recipe to execute (from 'Makefile', line 76):
+#  recipe to execute (from 'Makefile', line 86):
 	$(CC) $(DEBUG_FLAG) $(CFLAGS_LIB) -c $< -o $@
 
 obj/%.o: %.cpp
-#  recipe to execute (from 'Makefile', line 85):
+#  recipe to execute (from 'Makefile', line 98):
 	$(CC) $(DEBUG_FLAG) $(CFLAGS_APP) -c $< -o $@
 
 # 2 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
-all: test
+all: | obj test
 #  Phony target (prerequisite of .PHONY).
 #  Command line target.
 #  Implicit rule search has not been done.
@@ -268,10 +270,10 @@ all: test
 lib/obj/Load_data.o: lib/src/Load_data.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'Load_data'
-#  Last modified 2021-05-06 16:19:02
+#  Last modified 2021-05-10 04:06:18
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 76):
+#  recipe to execute (from 'Makefile', line 86):
 	$(CC) $(DEBUG_FLAG) $(CFLAGS_LIB) -c $< -o $@
 
 .PHONY: run all clean app_clean libs_build libs_clean help
@@ -288,14 +290,14 @@ lib/obj/Load_data.o: lib/src/Load_data.cpp
 # Not a target:
 lib/src/Stanar.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-05-06 22:51:33
+#  Last modified 2021-05-09 22:06:34
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-05-06 23:18:13
+#  Last modified 2021-05-10 04:10:50
 #  File has been updated.
 #  Successfully updated.
 
@@ -323,16 +325,16 @@ test: obj/test.o lib/libstan.a
 # ? := obj/test.o lib/libstan.a
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=3/19=16%
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 94):
 	$(CC) $(DEBUG_FLAG) $(LFLAGS_APP) -o $@ $^
 
 lib/obj/Stanar.o: lib/src/Stanar.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'Stanar'
-#  Last modified 2021-05-06 22:53:19
+#  Last modified 2021-05-10 04:06:15
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 76):
+#  recipe to execute (from 'Makefile', line 86):
 	$(CC) $(DEBUG_FLAG) $(CFLAGS_LIB) -c $< -o $@
 
 help:
@@ -340,7 +342,7 @@ help:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 120):
+#  recipe to execute (from 'Makefile', line 143):
 	@echo "src_lib: $(SRC_LIB)"
 	@echo "obj_lib: $(OBJ_LIB)"
 	@echo "src_app: $(SRC_APP)"
@@ -349,11 +351,24 @@ help:
 obj/test.o: test.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'test'
-#  Last modified 2021-05-06 23:17:33
+#  Last modified 2021-05-10 04:06:23
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 85):
+#  recipe to execute (from 'Makefile', line 98):
 	$(CC) $(DEBUG_FLAG) $(CFLAGS_APP) -c $< -o $@
+
+lib: | lib/obj lib/libstan.a
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj:
+#  Implicit rule search has not been done.
+#  Last modified 2021-05-10 04:06:23
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 102):
+	mkdir -p $(OBJ_APP_DIR)
 
 # Not a target:
 .DEFAULT:
@@ -366,7 +381,7 @@ libs_clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 116):
+#  recipe to execute (from 'Makefile', line 139):
 	$(RM) $(OBJ_LIB) $(LIB_NAME)
 
 app_clean:
@@ -374,7 +389,7 @@ app_clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 112):
+#  recipe to execute (from 'Makefile', line 134):
 	$(RM) $(TARGET) $(OBJ_APP)
 
 run: all
@@ -382,13 +397,14 @@ run: all
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 93):
+#  recipe to execute (from 'Makefile', line 110):
 	./$(TARGET)
 
 clean: app_clean libs_clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Fi 
+le does not exist.
 #  File has not been updated.
 
 # Not a target:
@@ -400,27 +416,37 @@ lib/src/Stan.cpp:
 
 lib/libstan.a: lib/obj/Stanar.o lib/obj/Stan.o lib/obj/Load_data.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-05-06 22:53:19
+#  Last modified 2021-05-10 04:06:18
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 73):
-	$(AR) cr $@ $^
+#  recipe to execute (from 'Makefile', line 78):
+	$(AR) -cr $@ $^
 
 lib/obj/Stan.o: lib/src/Stan.cpp
-#  Implicit rule search has been done.
+#  
+ Implicit rule search has been done.
 #  Implicit/static pattern stem: 'Stan'
-#  Last modified 2021-05-06 22:53:19
+#  Last modified 2021-05-10 04:06:16
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 76):
+#  recipe to execute (from 'Makefile', line 86):
 	$(CC) $(DEBUG_FLAG) $(CFLAGS_LIB) -c $< -o $@
 
 # Not a target:
 test.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-05-06 23:17:29
+#  Last modified 2021-05-10 01:16:53
 #  File has been updated.
 #  Successfully updated.
+
+cleanall: app_clean libs_clean
+#  Implicit rule search has not been done.
+#  Modification time n 
+ever checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 125):
+	$(RM) -d $(OBJ_APP_DIR)
+	$(RM) -d $(LIB_DIR)/$(OBJ_LIB_DIR)
 
 libs_build: lib/libstan.a
 #  Phony target (prerequisite of .PHONY).
@@ -431,24 +457,31 @@ libs_build: lib/libstan.a
 # Not a target:
 lib/src/Load_data.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-05-06 15:38:01
+#  Last modified 2021-05-10 03:33:28
 #  File has been updated.
 #  Successfully updated.
 
+lib/obj:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 82):
+	mkdir -p $(LIB_DIR)/$(OBJ_LIB_DIR)
+
 # files hash-table stats:
-# Load=21/1024=2%, Rehash=0, Collisions=0/68=0%
+# Load=25/1024=2%, Rehash=0, Collisions=0/79=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 42 / storage = 403 B / avg = 9 B
-# current buf: size = 8162 B / used = 403 B / count = 42 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 45 / storage = 430 B / avg = 9 B
+# current buf: size = 8162 B / used = 430 B / count = 45 / avg = 9 B
 
-# strcache performance: lookups = 78 / hit rate = 46%
+# strcache performance: lookups = 92 / hit rate = 51%
 # hash-table stats:
-# Load=42/8192=1%, Rehash=0, Collisions=2/78=3%
-# Finished Make data base on Thu May 06 23:18:15 2021
+# Load=45/8192=1%, Rehash=0, Collisions=2/92=2%
+# Finished Make data base on Mon May 10 04:21:26 2021
 
  
