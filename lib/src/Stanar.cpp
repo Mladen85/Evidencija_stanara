@@ -71,8 +71,8 @@ namespace SpisakStanara
         email = n_email;
     }
 
-    void Stanar::setStan(Stan *new_stan)
+    void Stanar::setStan(Stan &new_stan)
     {
-        stan = new_stan;
+        stan = &new_stan;
     }
 }

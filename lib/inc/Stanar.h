@@ -20,12 +20,12 @@ namespace SpisakStanara
         Stan *stan;
 
     public:
-        friend Stan;
+        // friend Stan;
         //Constructors
         Stanar();
 
         //Destructor
-        ~Stanar() = default;
+        // ~Stanar() = default;
 
         //Getters
         std::string getIme() const;
@@ -39,7 +39,7 @@ namespace SpisakStanara
         void setPrezime(const std::string &n_prezime);
         void setTelBroj(const std::string &n_tel_broj);
         void setEmail(const std::string &n_email);
-        void setStan(Stan *new_stan);
+        void setStan(Stan &new_stan);
     };
 }
 
