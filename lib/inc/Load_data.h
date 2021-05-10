@@ -8,8 +8,11 @@
 #include "Stanar.h"
 
 
-extern std::vector<SpisakStanara::Stan> zgrada;
+// extern std::vector<SpisakStanara::Stan> zgrada;
 
-void Load_Data();
+namespace SpisakStanara
+{
+    int ReadZgradaFromFile(std::vector<Stan> &v_zgrada);
+}
 
 #endif //LOAD_DATA_H
