@@ -24,6 +24,7 @@ LIB_NAME = $(LIB_DIR)/lib$(LIB).a
 # Library source
 SRC_LIB_DIR = src
 SRC_LIB = $(wildcard $(LIB_DIR)/$(SRC_LIB_DIR)/*.cpp)
+
 # Library include (headers)
 INC_LIB_DIR = inc
 
@@ -69,20 +70,36 @@ W_PEDANTIC = -Wall -pedantic
 
 ################################################################
 ## make library
-$(LIB_NAME) : $(OBJ_LIB)
-	$(AR) cr $@ $^
+# Command to first create lib/obj direcotory (if doesn't exist), compile cpp files and then create library
+lib: | $(LIB_DIR)/$(OBJ_LIB_DIR) $(LIB_NAME)
 
+# Create library
+$(LIB_NAME) : $(OBJ_LIB)
+	$(AR) -cr $@ $^
+
+# Create lib/obj folder if doesn't exist
+$(LIB_DIR)/$(OBJ_LIB_DIR):
+	mkdir -p $(LIB_DIR)/$(OBJ_LIB_DIR)
+
+# Compile cpp files
 $(LIB_DIR)/$(OBJ_LIB_DIR)/%.o : $(LIB_DIR)/$(SRC_LIB_DIR)/%.cpp
 	$(CC) $(DEBUG_FLAG) $(CFLAGS_LIB) -c $< -o $@
+
+
 ################################################################
 
 ################################################################
-## make application
+## Build application
 $(TARGET) : $(OBJ_APP) $(LIB_NAME)
 	$(CC) $(DEBUG_FLAG) $(LFLAGS_APP) -o $@ $^
 
+# Compile application
 $(OBJ_APP_DIR)/%.o : %.cpp
 	$(CC) $(DEBUG_FLAG) $(CFLAGS_APP) -c $< -o $@
+
+# Create obj folder
+$(OBJ_APP_DIR):
+	mkdir -p $(OBJ_APP_DIR)
 ################################################################
 
 
@@ -92,8 +109,8 @@ $(OBJ_APP_DIR)/%.o : %.cpp
 run : all
 	./$(TARGET)
 
-# Build project
-all : $(TARGET)
+# Create obj folder (if doesn't exist) and build project
+all : | $(OBJ_APP_DIR) $(TARGET)
 
 
 
@@ -103,6 +120,11 @@ libs_build : $(LIB_NAME)
 # Clean program
 clean : app_clean libs_clean
 
+# Clean program and delete obj folders
+cleanall: app_clean libs_clean
+	$(RM) -d $(OBJ_APP_DIR)
+	$(RM) -d $(LIB_DIR)/$(OBJ_LIB_DIR)
+
 # Changed because of Windows specific requirements
 # g++ is adding .exe at the end of out file
 # (can't use obj/*.o, have to use obj\*o)
@@ -110,6 +132,7 @@ clean : app_clean libs_clean
 # Clean application
 app_clean :
 	$(RM) $(TARGET) $(OBJ_APP)
+
 
 # Clean library
 libs_clean :
