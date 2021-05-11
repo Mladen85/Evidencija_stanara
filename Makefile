@@ -9,7 +9,7 @@
 CCOMPILER = g++
 
 # Test name
-#TEST = _character
+#TEST = _zgrada
 
 
 ################################################################
@@ -27,6 +27,7 @@ SRC_LIB = $(wildcard $(LIB_DIR)/$(SRC_LIB_DIR)/*.cpp)
 
 # Library include (headers)
 INC_LIB_DIR = inc
+INC_LIB = $(wildcard $(LIB_DIR)/$(INC_LIB_DIR)/*.h)
 
 # Library object
 OBJ_LIB_DIR = obj
@@ -71,7 +72,7 @@ W_PEDANTIC = -Wall -pedantic
 ################################################################
 ## make library
 # Command to first create lib/obj direcotory (if doesn't exist), compile cpp files and then create library
-lib: | $(LIB_DIR)/$(OBJ_LIB_DIR) $(LIB_NAME)
+make_lib: | $(LIB_DIR)/$(OBJ_LIB_DIR) $(LIB_NAME)
 
 # Create library
 $(LIB_NAME) : $(OBJ_LIB)
@@ -85,8 +86,8 @@ $(LIB_DIR)/$(OBJ_LIB_DIR):
 $(LIB_DIR)/$(OBJ_LIB_DIR)/%.o : $(LIB_DIR)/$(SRC_LIB_DIR)/%.cpp
 	$(CC) $(DEBUG_FLAG) $(CFLAGS_LIB) -c $< -o $@
 
-
 ################################################################
+
 
 ################################################################
 ## Build application
@@ -100,30 +101,34 @@ $(OBJ_APP_DIR)/%.o : %.cpp
 # Create obj folder
 $(OBJ_APP_DIR):
 	mkdir -p $(OBJ_APP_DIR)
+
 ################################################################
 
 
-.PHONY : run all clean app_clean libs_build libs_clean help
+.PHONY : run all make_app make_lib clean_all clean app_clean libs_build libs_clean help
 
 # Run program
 run : all
 	./$(TARGET)
 
 # Create obj folder (if doesn't exist) and build project
-all : | $(OBJ_APP_DIR) $(TARGET)
+all : libs_build make_app
 
+
+make_app: | $(OBJ_APP_DIR) $(TARGET)
 
 
 # Run library (build library)
-libs_build : $(LIB_NAME)
+libs_build : make_lib
+
+
+# Clean program and delete obj folders
+clean_all: clean
+	$(RM) -d $(OBJ_APP_DIR)
+	$(RM) -d $(LIB_DIR)/$(OBJ_LIB_DIR)
 
 # Clean program
 clean : app_clean libs_clean
-
-# Clean program and delete obj folders
-cleanall: app_clean libs_clean
-	$(RM) -d $(OBJ_APP_DIR)
-	$(RM) -d $(LIB_DIR)/$(OBJ_LIB_DIR)
 
 # Changed because of Windows specific requirements
 # g++ is adding .exe at the end of out file
@@ -133,13 +138,13 @@ cleanall: app_clean libs_clean
 app_clean :
 	$(RM) $(TARGET) $(OBJ_APP)
 
-
 # Clean library
 libs_clean :
 	$(RM) $(OBJ_LIB) $(LIB_NAME)
 
 
 help :
+	@echo "inc_lib: $(INC_LIB)"
 	@echo "src_lib: $(SRC_LIB)"
 	@echo "obj_lib: $(OBJ_LIB)"
 	@echo "src_app: $(SRC_APP)"
