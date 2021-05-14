@@ -16,7 +16,7 @@
 //             Static keyword can also be used (but be carefull not to mix with static member functions)
 namespace
 {
-    int OpenFile(std::ifstream &file, std::string file_name)
+    int OpenFile(std::ifstream &file, const std::string &file_name)
     {
         std::string file_path = "data_file/";
         if ((CreateDirectory(file_path.c_str(), NULL)) || (ERROR_ALREADY_EXISTS == GetLastError()))
