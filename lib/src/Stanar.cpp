@@ -75,4 +75,46 @@ namespace SpisakStanara
     {
         stan = &new_stan;
     }
+
+    //Operator << overload
+    std::ostream &operator<<(std::ostream &out, const Stanar &stanar)
+    {
+        if(stanar.getIme() != "")
+        {
+            out << stanar.getIme() << std::endl;
+        }
+        else
+        {
+            out << 0 << std::endl;
+        }
+
+        if (stanar.getPrezime() != "")
+        {
+            out << stanar.getPrezime() << std::endl;
+        }
+        else
+        {
+            out << 0 << std::endl;
+        }
+
+        if (stanar.getTelBroj() != "")
+        {
+            out << stanar.getTelBroj() << std::endl;
+        }
+        else
+        {
+            out << 0 << std::endl;
+        }
+
+        if (stanar.getEmail() != "")
+        {
+            out << stanar.getEmail() << std::endl;
+        }
+        else
+        {
+            out << 0 << std::endl;
+        }
+
+        return out;
+    }
 }

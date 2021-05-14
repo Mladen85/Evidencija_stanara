@@ -41,6 +41,8 @@ namespace SpisakStanara
         void setEmail(const std::string &n_email);
         void setStan(Stan &new_stan);
     };
+
+    std::ostream &operator<<(std::ostream &out, const Stanar &stanar);
 }
 
 #endif //STANAR_H

@@ -57,4 +57,12 @@ namespace SpisakStanara
     {
         povrsina_stan = povrsina;
     }
+
+    //Operator << overload
+    std::ostream &operator<<(std::ostream &out, const Stan &stan)
+    {
+        out << stan.getBrojStan() << " " << stan.getPovrsinaStan() << std::endl;
+
+        return out;
+    }
 }

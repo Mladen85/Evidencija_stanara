@@ -34,6 +34,8 @@ namespace SpisakStanara
         std::vector<Stanar> &setStanari();
         void setPovrsina(float povrsina);
     };
+
+    std::ostream &operator<<(std::ostream &out, const Stan &stan);
 }
 
 #endif //STAN_H
