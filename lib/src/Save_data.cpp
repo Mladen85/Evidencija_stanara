@@ -22,7 +22,9 @@ namespace
             std::cout << "ELSE - File path: " << file_path << std::endl;
         }
 
-        file.open(file_path, std::ios::in | std::ios::out);
+        // file.open(file_path, std::ios::in | std::ios::out);
+        file.open(file_path, std::fstream::in | std::fstream::out | std::fstream::trunc);    // Clear file
+        // file.open(file_path, std::ios::in | std::ios::out | std::ios::ate);      // Append to file
         if (file.is_open())
         {
             std::cout << "FILE " << file_name << " in folder " << file_path << " is open!" << std::endl;
@@ -55,6 +57,7 @@ namespace
     {
         for (int i = 0; i < v_zgrada.size(); i++)
         {
+            out << v_zgrada[i];
             for (int j = 0; j < v_zgrada[i].getStanari().size(); j++)
             {
                 out << v_zgrada[i].getStanari()[j];
@@ -63,7 +66,8 @@ namespace
                     out << "--" << std::endl;
                 }
             }
-            out << "END_STAN" << std::endl;
+            out << "END_STAN";
+            out << std::endl;
         }
     }
 
@@ -77,6 +81,9 @@ namespace
 
     void WriteData(std::fstream &file, std::vector<SpisakStanara::Stan> &v_zgrada)
     {
+        // std::fstream::pos_type pos_end_of_file = file.tellp();
+        file.seekp(0, std::ios::end);
+        const std::fstream::pos_type pos_end_of_file = file.tellp();
         file.seekp(0);
         int tmp_br_stan;
         float tmp_povrsina;
@@ -96,24 +103,38 @@ namespace
         std::fstream::pos_type pos_less = pos;
         // Position to write stan to file if br_stan is equal
         std::fstream::pos_type pos_equal = pos;
-        unsigned char first_enter_less = 1;
+        // unsigned char first_enter_less = 1;
 
         // If file is empty, write entire vector
-        if(file.eof() == pos)
+        if (pos_end_of_file == pos)
         {
-            for (int i = 0; i < v_zgrada.size(); i++)
-            {
-                // FormatWriteStan(print_stan, v_zgrada[i]);
-                // std::cout << print_stan << std::endl;
-                file << v_zgrada << std::endl;
-            }
+            // for (int i = 0; i < v_zgrada.size(); i++)
+            // {
+            //     // FormatWriteStan(print_stan, v_zgrada[i]);
+            //     // std::cout << print_stan << std::endl;
+            //     file << v_zgrada << std::endl;
+            // }
+
+            // try
+            // {
+                file << v_zgrada;
+               
+                // file << std::endl;
+            // }
+            // catch(const std::exception& e)
+            // {
+            //     std::cerr << e.what() << '\n';
+            // }
 
             //File was empty, just print vector to file and exit
             return;
         }
 
-        std::vector<SpisakStanara::Stan>::iterator write_begin = v_zgrada.begin();
-        std::vector<SpisakStanara::Stan>::iterator write_end = v_zgrada.begin();
+        #if 1
+        // std::vector<SpisakStanara::Stan>::iterator write_begin = v_zgrada.begin();
+        // std::vector<SpisakStanara::Stan>::iterator write_end = v_zgrada.begin();
+        int write_begin = 0;
+        int write_end = 0;
         // 0 - dont write, 1 - write
         unsigned char write_flag = 0;
 
@@ -122,19 +143,20 @@ namespace
             // Check if br_stan_v is less than br_stan_f
             if (v_zgrada[index].getBrojStan() < tmp_br_stan)
             {
-                if (first_enter_less == 1)
+                // if (first_enter_less == 1)
+                if (write_flag == 0)
                 {
-                    first_enter_less = 0;
+                    // first_enter_less = 0;
                     write_flag = 1;
                     pos_less = pos;
-                    write_begin = v_zgrada.begin() + index;
-                    write_end = v_zgrada.begin() + index;
+                    write_begin = index;
+                    write_end = index;
                 }
                 else
                 {
                     write_end++;
                 }
-                index++;
+                
             }
             else
             {
@@ -143,70 +165,81 @@ namespace
                 {
                     write_flag = 0;
                     file.seekp(pos_less);
-                    std::vector<SpisakStanara::Stan> write_zgrada(write_begin, write_end);
+                    std::vector<SpisakStanara::Stan> write_zgrada(v_zgrada.begin() + write_begin, v_zgrada.end() + write_end);
                     file << write_zgrada;
                 }
-            }
 
-            // Check if br_stan_v is equal to br_stan_f
-            if (v_zgrada[index].getBrojStan() == tmp_br_stan)
-            {
-                std::vector<SpisakStanara::Stanar> v_equal_stanar;
-                // SpisakStanara::Stanar tmp_equal_stanar;
-                while (file >> tmp_ime >> tmp_prezime >> tmp_tel >> tmp_email >> end_stan)
+                // Check if br_stan_v is equal to br_stan_f
+                if (v_zgrada[index].getBrojStan() == tmp_br_stan)
                 {
-                    SpisakStanara::Stanar tmp_equal_stanar;
-
-                    if (tmp_ime != "0")
+                    std::vector<SpisakStanara::Stanar> v_equal_stanar;
+                    // SpisakStanara::Stanar tmp_equal_stanar;
+                    while (file >> tmp_ime >> tmp_prezime >> tmp_tel >> tmp_email >> end_stan)
                     {
-                        tmp_equal_stanar.setIme(tmp_ime);
+                        SpisakStanara::Stanar tmp_equal_stanar;
+
+                        if (tmp_ime != "0")
+                        {
+                            tmp_equal_stanar.setIme(tmp_ime);
+                        }
+
+                        if (tmp_prezime != "0")
+                        {
+                            tmp_equal_stanar.setPrezime(tmp_prezime);
+                        }
+
+                        if (tmp_tel != "0")
+                        {
+                            tmp_equal_stanar.setTelBroj(tmp_tel);
+                        }
+
+                        if (tmp_email != "0")
+                        {
+                            tmp_equal_stanar.setEmail(tmp_email);
+                        }
+
+                        v_equal_stanar.push_back(tmp_equal_stanar);
+
+                        if (end_stan == "END_STAN")
+                        {
+                            break;
+                        }
                     }
+                    // write_begin = v_zgrada.begin() + index;
+                    // write_end = v_zgrada.begin() + index;
+                    std::vector<SpisakStanara::Stan> write_stan(v_zgrada.begin() + index, v_zgrada.begin() + index);
+                    file.seekp(pos);
 
-                    if (tmp_prezime != "0")
+                    OverwriteEqualStan(file, write_stan, v_equal_stanar);
+                    // write_flag = 1;
+                }
+                else
+                {
+                    while ((file >> end_stan) && (end_stan != "END_STAN"))
                     {
-                        tmp_equal_stanar.setPrezime(tmp_prezime);
-                    }
-
-                    if (tmp_tel != "0")
-                    {
-                        tmp_equal_stanar.setTelBroj(tmp_tel);
-                    }
-
-                    if (tmp_email != "0")
-                    {
-                        tmp_equal_stanar.setEmail(tmp_email);
-                    }
-
-                    v_equal_stanar.push_back(tmp_equal_stanar);
-
-                    if (end_stan == "END_STAN")
-                    {
-                        break;
+                        // do nothing
                     }
                 }
-                // write_begin = v_zgrada.begin() + index;
-                // write_end = v_zgrada.begin() + index;
-                std::vector<SpisakStanara::Stan> write_stan(v_zgrada.begin() + index, v_zgrada.begin() + index);
-                file.seekp(pos);
-
-                OverwriteEqualStan(file, write_stan, v_equal_stanar);
-                // write_flag = 1;
-            }
-            else
-            {
-                while ((file >> end_stan) && (end_stan != "END_STAN"))
-                {
-                    // do nothing
-                }
             }
 
-            if (write_flag == 1)
-            {
-                //overwrite
-            }
+            index++;
             pos = file.tellp();
+            // if(pos_end_of_file == pos)
+            // {
+            //     index--;
+            //     break;
+            // }
         }
 
+        index--;    // Undo last increment in while loop (last increment is false)
+        int temp_size = v_zgrada.size();
+        if (index < v_zgrada.size())
+        {
+            // std::cout << std::endl;
+            std::vector<SpisakStanara::Stan> write_stan(v_zgrada.begin() + index, v_zgrada.end());
+            file << write_stan;
+        }
+        #endif
     }
 }
 

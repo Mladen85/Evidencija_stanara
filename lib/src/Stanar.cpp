@@ -85,7 +85,7 @@ namespace SpisakStanara
         }
         else
         {
-            out << 0 << std::endl;
+            out << "0" << std::endl;
         }
 
         if (stanar.getPrezime() != "")
@@ -94,7 +94,7 @@ namespace SpisakStanara
         }
         else
         {
-            out << 0 << std::endl;
+            out << "0" << std::endl;
         }
 
         if (stanar.getTelBroj() != "")
@@ -103,7 +103,7 @@ namespace SpisakStanara
         }
         else
         {
-            out << 0 << std::endl;
+            out << "0" << std::endl;
         }
 
         if (stanar.getEmail() != "")
@@ -112,7 +112,7 @@ namespace SpisakStanara
         }
         else
         {
-            out << 0 << std::endl;
+            out << "0" << std::endl;
         }
 
         return out;

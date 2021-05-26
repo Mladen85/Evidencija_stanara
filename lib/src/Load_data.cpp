@@ -57,6 +57,11 @@ namespace
         }
     }
 
+    bool IsEmptyFile(std::ifstream &file)
+    {
+        return file.peek() == std::ifstream::traits_type::eof();
+    }
+
     void LoadData(std::ifstream &file, std::vector<SpisakStanara::Stan> &v_zgrada)
     {
         SpisakStanara::Stan tmp_stan;
@@ -69,7 +74,7 @@ namespace
         std::string tmp_email;
         std::string end_stan;
 
-        while (!file.eof())
+        while (!IsEmptyFile(file))
         {
             if (file >> tmp_br_stan >> tmp_povrsina)
             {
@@ -77,6 +82,10 @@ namespace
                 std::cout << "povrsina je: " << tmp_povrsina << std::endl;
                 tmp_stan.setPovrsina(tmp_povrsina);
                 std::cout << "povrsina je: " << tmp_stan.getPovrsinaStan() << std::endl;
+            }
+            else
+            {
+                return;
             }
 
             while (file >> tmp_ime >> tmp_prezime >> tmp_tel >> tmp_email >> end_stan)
